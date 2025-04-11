@@ -1,0 +1,67 @@
+#001 Test for valid login
+
+Preconditions:
+
+Steps
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Sign in button
+3. In login input enter valid login
+4. In password input enter valid password
+5. Click on Sign in button
+
+Expected result:
+User is logged in
+Login and password fields are not shown
+
+---------------------__----------------------------
+
+#002 Test for valid sign out
+
+Preconditions:
+Login with created user
+
+Steps:
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Avatar button
+3. Click on Sign Out button
+
+Expected result:
+- Login button is visible
+
+---------------------__----------------------------
+
+#003 Test for sending messages
+
+Preconditions:
+Log in with created user
+
+Steps:
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Avatar button
+3. Click on Messages button
+4. Click on New message button
+5. Fill in the form with valid data
+6. Click on Send button
+7. Check that the message is sent
+
+---------------------__----------------------------
+
+#004 Test for sections scrolls
+
+Steps:
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Spells button
+3. Check that the page is scrolled to the Spells section
+
+---------------------__----------------------------
+
+#005 Test for tabs
+
+Steps:
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Spells button
+3. Click on All Spells button
+4. Click on Level 3 tab
+5. Check that Fireball is present in the list
+
+
