@@ -1,9 +1,10 @@
-package org.data.pages;
+package org.pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -32,6 +33,17 @@ public class CommonActionsWithElements {
     public void printErrorAndStopTest(Exception e) {
         logger.error("Cannot work with element " + e);
         Assert.fail("Cannot work with element " + e);
+    }
+
+    protected void clickOnElement(WebElement webElement) {
+        try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+            String elementName = getElementName(webElement);
+            webElement.click();
+            logger.info("Element " + elementName + " was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 
     protected void clearAndEnterTextToElement(WebElement webElement, String text) {
