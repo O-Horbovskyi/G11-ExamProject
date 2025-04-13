@@ -38,9 +38,8 @@ public class CommonActionsWithElements {
     protected void clickOnElement(WebElement webElement) {
         try {
             webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
-            String elementName = getElementName(webElement);
             webElement.click();
-            logger.info("Element " + elementName + " was clicked");
+            logger.info("Element " + "Sign In Button" + " was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
