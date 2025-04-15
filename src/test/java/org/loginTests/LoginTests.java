@@ -8,10 +8,10 @@ import static org.data.TestData.VALID_PASSWORD;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void T001_RefreshPageWithLoginInputData() {
+    public void T001_ValidLoginTest() {
         pageProvider.getHomePage()
                 .openPage()
-                .clickOnButtonSignIn();
+                .clickOnButtonSignInAndSwitchTab();
         pageProvider.getLoginPage()
                 .enterLogin(VALID_LOGIN)
                 .enterPassword(VALID_PASSWORD)
@@ -23,4 +23,5 @@ public class LoginTests extends BaseTest {
         ;
 
     }
+
 }

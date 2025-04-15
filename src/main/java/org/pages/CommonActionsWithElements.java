@@ -2,6 +2,7 @@ package org.pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,7 +40,19 @@ public class CommonActionsWithElements {
         try {
             webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
-            logger.info("Element " + "Sign In Button" + " was clicked");
+            logger.info("Element " + webElement + " was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    protected void clickOnElement(String xpath) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xpath));
+            String elementName = webElement.getAccessibleName();
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+            logger.info("Element " + elementName + " was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -71,6 +84,10 @@ public class CommonActionsWithElements {
     }
 
     protected void checkIsElementVisible(WebElement webElement) {
-        Assert.assertTrue("Element " + getElementName(webElement) + " is not visible", isElementVisible(webElement));
+        Assert.assertTrue("Element is not visible", isElementVisible(webElement));
+    }
+
+    protected void checkIsElementNotVisible(WebElement webElement) {
+        Assert.assertFalse("Element is visible", isElementVisible(webElement));
     }
 }

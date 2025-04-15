@@ -1,7 +1,6 @@
 package org.pages;
 
 import org.apache.log4j.Logger;
-import org.data.TestData;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,10 +22,19 @@ public class HomePage extends ParentPage {
 
     @FindBy(xpath = "//a[@class='login-status-sign-in btn btn-primary']")
     private WebElement signInButton;
+    String signInButtonLocator = "//a[@class='login-status-sign-in btn btn-primary']";
 
     @FindBy(xpath = "//div[@class='btn dropdown-toggle']")
     private WebElement avatarButton;
     String avatarButtonLocator = "//div[@class='btn dropdown-toggle']";
+
+    @FindBy(xpath = "//a[@onclick='WIKIDOT.page.listeners.logoutClick(event)']")
+    private WebElement signOutButton;
+    String signOutButtonLocator = "//a[@onclick='WIKIDOT.page.listeners.logoutClick(event)']";
+
+    @FindBy(xpath = "//a[@href='https://www.wikidot.com/account/messages']")
+    private WebElement messagesButton;
+    String messagesButtonLocator = "//a[@href='https://www.wikidot.com/account/messages']";
 
     public LoginPage clickSignInButton() {
         clickOnElement(signInButton);
@@ -50,8 +58,18 @@ public class HomePage extends ParentPage {
         logger.info("Avatar button is displayed");
     }
 
-    public void clickOnButtonSignIn() {
-        webDriver.findElement(By.xpath("//a[@class='login-status-sign-in btn btn-primary']")).click();
+    public void checkIsSignInButtonDisplayed() {
+        Assert.assertTrue("Sign In button is not displayed", webDriver.findElement(By.xpath(signInButtonLocator)).isDisplayed());
+        logger.info("Sign In button is displayed");
+    }
+
+    public void checkIsAvatarButtonNotDisplayed() {
+        checkIsElementNotVisible(avatarButton);
+        logger.info("Avatar button is not displayed");
+    }
+
+    public void clickOnButtonSignInAndSwitchTab() {
+        clickOnElement(signInButtonLocator);
         logger.info("Button Sign In was clicked");
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         Assert.assertTrue("New tab did not open", tabs.size() > 1);
@@ -59,6 +77,23 @@ public class HomePage extends ParentPage {
 
     }
 
+    public HomePage clickOnAvatarButton() {
+        clickOnElement(avatarButtonLocator);
+        logger.info("Avatar button was clicked");
+        return this;
+    }
+
+    public HomePage clickOnSignOutButton() {
+        clickOnElement(signOutButtonLocator);
+        logger.info("Sign Out button was clicked");
+        return this;
+    }
+
+    public MessagesPage clickOnMessagesButton() {
+        clickOnElement(messagesButtonLocator);
+        logger.info("Messages button was clicked");
+    return new MessagesPage(webDriver);
+    }
 
 
 }

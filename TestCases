@@ -44,6 +44,9 @@ Steps:
 6. Click on Send button
 7. Check that the message is sent
 
+Postconditions:
+Delete created message
+
 ---------------------__----------------------------
 
 #004 Test for sections scrolls
