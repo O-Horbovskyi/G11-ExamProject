@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class CommonActionsWithElements {
     protected WebDriver webDriver;
@@ -68,6 +69,31 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void clearAndEnterTextToElement(String xpath, String text) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xpath));
+            webElement.clear();
+            webElement.sendKeys(text);
+            logger.info(text + " was entered into element" + getElementName(webElement));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectCheckbox(WebElement webElement) {
+        try {
+            if (!webElement.isSelected()) {
+                webElement.click();
+                logger.info("Checkbox " + getElementName(webElement) + " was selected");
+            } else {
+                logger.info("Checkbox " + getElementName(webElement) + " is already selected");
+            }
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+
     public boolean isElementVisible(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
@@ -90,4 +116,9 @@ public class CommonActionsWithElements {
     protected void checkIsElementNotVisible(WebElement webElement) {
         Assert.assertFalse("Element is visible", isElementVisible(webElement));
     }
+
+    protected void checkIsElementNotVisible(List<WebElement> webElements) {
+        Assert.assertTrue("Element is visible", webElements.isEmpty());
+    }
+
 }

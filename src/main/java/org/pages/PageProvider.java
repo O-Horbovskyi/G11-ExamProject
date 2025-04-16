@@ -19,5 +19,7 @@ public class PageProvider {
     }
 
 
-
+    public MessagesPage getMessagePage() {
+        return new MessagesPage(webDriver);
+    }
 }

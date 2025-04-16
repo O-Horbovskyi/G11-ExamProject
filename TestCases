@@ -15,10 +15,10 @@ Login and password fields are not shown
 
 ---------------------__----------------------------
 
-#002 Test for valid sign out
+#002 Test for sign out
 
 Preconditions:
-Login with created user
+Login with valid credentials
 
 Steps:
 1. Open homepage https://dnd5e.wikidot.com/
@@ -27,6 +27,7 @@ Steps:
 
 Expected result:
 - Login button is visible
+- Avatar button is not visible
 
 ---------------------__----------------------------
 
@@ -42,7 +43,10 @@ Steps:
 4. Click on New message button
 5. Fill in the form with valid data
 6. Click on Send button
-7. Check that the message is sent
+
+Expected result:
+- New message is whon in the list
+- Message contains correct text
 
 Postconditions:
 Delete created message
