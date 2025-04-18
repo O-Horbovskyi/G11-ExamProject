@@ -22,4 +22,8 @@ public class PageProvider {
     public MessagesPage getMessagePage() {
         return new MessagesPage(webDriver);
     }
+
+    public SpellsPage getSpellsPage() {
+        return new SpellsPage(webDriver);
+    }
 }

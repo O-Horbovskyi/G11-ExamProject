@@ -113,6 +113,10 @@ public class CommonActionsWithElements {
         Assert.assertTrue("Element is not visible", isElementVisible(webElement));
     }
 
+    protected void checkIsElementVisible(String locator) {
+        Assert.assertTrue("Element is not visible", isElementVisible(webDriver.findElement(By.xpath(locator))));
+    }
+
     protected void checkIsElementNotVisible(WebElement webElement) {
         Assert.assertFalse("Element is visible", isElementVisible(webElement));
     }

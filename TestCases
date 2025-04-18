@@ -45,10 +45,10 @@ Steps:
 6. Click on Send button
 
 Expected result:
-- New message is whon in the list
+- New message is shown in the list
 - Message contains correct text
 
-Postconditions:
+Post conditions:
 Delete created message
 
 ---------------------__----------------------------
@@ -57,8 +57,10 @@ Delete created message
 
 Steps:
 1. Open homepage https://dnd5e.wikidot.com/
-2. Click on Spells button
-3. Check that the page is scrolled to the Spells section
+2. Click on Feats button
+
+Expected result:
+Page is scrolled to the Feats section
 
 ---------------------__----------------------------
 
@@ -69,6 +71,31 @@ Steps:
 2. Click on Spells button
 3. Click on All Spells button
 4. Click on Level 3 tab
-5. Check that Fireball is present in the list
+
+Expected result:
+Fireball is visible in the spells list
+
+---------------------__----------------------------
+
+#006 Test for new messages counter
+
+Preconditions:
+User is logged in
+New message has been sent to the user
+
+Steps:
+1. Open homepage https://dnd5e.wikidot.com/
+2. Click on Avatar button
+3. Click on Messages button
+4. Send new message to the user
+5. Open homepage https://dnd5e.wikidot.com/
+
+Expected result:
+New message counter shows correct number of messages
+
+Post conditions:
+Delete created message
+
+---------------------__----------------------------
 
 

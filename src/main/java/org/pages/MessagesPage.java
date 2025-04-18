@@ -107,11 +107,13 @@ public class MessagesPage extends ParentPage {
         final int MAX_NEW_MESSAGES_COUNT = 100;
         int count = 0;
         while (!listOfNewMessages.isEmpty() && (count < MAX_NEW_MESSAGES_COUNT)) {
-            webDriverWait_10.until(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath(popupMessageLocator))));
+//            webDriverWait_10.until(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath(popupMessageLocator))));
+            Utils_Custom.waitABit(4);
             clickOnElement(webDriver.findElement(By.xpath(String.format(inboxMessagesCheckboxLocator, subject))));
             clickOnElement(deleteMessagesButtonLocator);
             clickOnElement(removeMessageButtonLocator);
-            webDriverWait_10.until(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath(popupMessageLocator))));
+//            webDriverWait_10.until(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath(popupMessageLocator))));
+            Utils_Custom.waitABit(4);
             listOfNewMessages = getListOfNewMessages(message, subject);
             count++;
             logger.info("Deleted message with subject: " + subject);

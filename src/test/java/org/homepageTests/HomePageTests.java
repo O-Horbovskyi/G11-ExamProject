@@ -3,6 +3,7 @@ package org.homepageTests;
 import org.baseTest.BaseTest;
 import org.junit.Test;
 
+
 public class HomePageTests extends BaseTest {
 
     @Test
@@ -19,4 +20,16 @@ public class HomePageTests extends BaseTest {
         pageProvider.getHomePage()
                 .checkIsAvatarButtonNotDisplayed();
     }
+
+    @Test
+    public void T004_ScrollToFeatsSectionTest() {
+        pageProvider.getHomePage()
+                .openPage()
+                .clickOnFeatsSectionLink()
+                .checkIsFeatsSectionLink()
+                .checkIsFeatsSectionTitleDisplayed()
+                .checkIsFeatsTavernBrawlerLinkDisplayed();
+    }
+
+
 }
